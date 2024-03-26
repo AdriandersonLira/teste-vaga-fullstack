@@ -11,6 +11,9 @@ export const Paper = styled.div`
   padding: 1rem;
   margin-top: 1rem;
 
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+
   p {
     padding: 7px;
     display: flex;
@@ -20,4 +23,11 @@ export const Paper = styled.div`
       font-weight: bold;
     }
   }
+`;
+
+export const Close = styled.div`
+  position: absolute;
+  display: flex;
+  align-self: flex-end;
+  margin: 0.6rem 0.7rem 0 0;
 `;

@@ -4,9 +4,14 @@ import { StyledSnackbar } from "./style";
 interface SnackbarProps {
   message: string;
   onClose: () => void;
+  type: string;
 }
 
-export default function Snackbar({ message, onClose }: SnackbarProps) {
+export default function Snackbar({
+  message,
+  onClose,
+  type = "success",
+}: SnackbarProps) {
   useEffect(() => {
     const timeout = setTimeout(() => {
       onClose();
@@ -15,5 +20,5 @@ export default function Snackbar({ message, onClose }: SnackbarProps) {
     return () => clearTimeout(timeout);
   }, [onClose]);
 
-  return <StyledSnackbar>{message}</StyledSnackbar>;
+  return <StyledSnackbar className={type}>{message}</StyledSnackbar>;
 }

@@ -12,6 +12,7 @@ interface UploadProps {
   setLoading: Dispatch<SetStateAction<boolean>>;
   setSnackbar: Dispatch<SetStateAction<boolean>>;
   setSnackbarMessage: Dispatch<SetStateAction<string>>;
+  setSnackbarType: Dispatch<SetStateAction<string>>;
 }
 
 export default function Upload({
@@ -20,6 +21,7 @@ export default function Upload({
   setLoading,
   setSnackbar,
   setSnackbarMessage,
+  setSnackbarType,
 }: UploadProps) {
   const handleDrop = async (
     acceptedFiles: File[],
@@ -28,6 +30,7 @@ export default function Upload({
     if (rejectedFiles && rejectedFiles.length > 0) {
       setSnackbarMessage(`Rejeitado: ${rejectedFiles[0].errors[0].message}`);
       setSnackbar(true);
+      setSnackbarType("error");
       return;
     }
 
@@ -42,6 +45,7 @@ export default function Upload({
       });
       setSnackbarMessage(`${response.data}`);
       setSnackbar(true);
+      setSnackbarType("success");
 
       if (response.status === 200) {
         const response = await apiClient.get("/contracts");
@@ -51,6 +55,7 @@ export default function Upload({
     } catch (error) {
       setSnackbarMessage(`Erro ao enviar arquivo: ${error}`);
       setSnackbar(true);
+      setSnackbarType("error");
     } finally {
       setLoading(false);
     }

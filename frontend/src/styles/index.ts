@@ -10,5 +10,8 @@ export const theme = {
     green800: "#246b44",
     green500: "#00875f",
     green300: "#00b37e",
+
+    error: "#FF6961",
+    black: "#000000",
   },
 };

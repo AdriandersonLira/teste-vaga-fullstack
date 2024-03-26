@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);
   const [snackbar, setSnackbar] = useState<boolean>(false);
+  const [snackbarType, setSnackbarType] = useState<string>("");
   const [snackbarMessage, setSnackbarMessage] = useState<string>("");
 
   const [data, setData] = useState<ContractCDCRow[]>([]);
@@ -24,6 +25,7 @@ export default function Home() {
       } catch (error) {
         setSnackbarMessage(`Erro ao buscar contratos: ${error}`);
         setSnackbar(true);
+        setSnackbarType("error");
       } finally {
         setLoading(false);
       }
@@ -51,6 +53,7 @@ export default function Home() {
               setLoading={setLoading}
               setSnackbar={setSnackbar}
               setSnackbarMessage={setSnackbarMessage}
+              setSnackbarType={setSnackbarType}
             />
           ) : (
             <TableWithPagination data={data} />
@@ -58,7 +61,11 @@ export default function Home() {
         </>
       )}
       {snackbar && (
-        <Snackbar message={snackbarMessage} onClose={handleCloseSnackbar} />
+        <Snackbar
+          message={snackbarMessage}
+          onClose={handleCloseSnackbar}
+          type={snackbarType}
+        />
       )}
     </Container>
   );

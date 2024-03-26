@@ -1,7 +1,8 @@
 import { cnpj, cpf } from "cpf-cnpj-validator";
-import { Content, Paper } from "./style";
+import { Content, Paper, Close } from "./style";
 
-import { Drawer as DrawerMui } from "@mui/material";
+import { Drawer as DrawerMui, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import moment from "moment";
 import { handleCurrency } from "@/utils/helpers";
 import { ContractCDCRow } from "@/types/IData";
@@ -19,6 +20,11 @@ export default function Drawer({
 }: DrawerProps) {
   return (
     <DrawerMui anchor="right" open={drawerOpen} onClose={handleCloseDrawer}>
+      <Close>
+        <IconButton aria-label="Fechar" onClick={handleCloseDrawer}>
+          <CloseIcon />
+        </IconButton>
+      </Close>
       {selectedContract && (
         <Content>
           <h2>Detalhes do Contrato</h2>

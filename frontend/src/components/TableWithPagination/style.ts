@@ -36,6 +36,13 @@ export const TableCell = styled.td`
   height: 100%;
   min-height: 3rem;
   max-height: 3rem;
+
+  &.actions {
+    max-height: 3.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const PaginationContainer = styled.div`

@@ -94,7 +94,7 @@ export default function TableWithPagination({
                 </TableCell>
                 <TableCell>{item.qtPrestacoes}</TableCell>
                 <TableCell>{handleCurrency(Number(item.vlTotal))}</TableCell>
-                <TableCell>
+                <TableCell className="actions">
                   <IconButton onClick={() => handleOpenDrawer(item)}>
                     <AssignmentIcon fontSize="small" />
                   </IconButton>

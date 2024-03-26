@@ -11,6 +11,11 @@ export const StyledSnackbar = styled.div`
   border-radius: 5px;
   animation: slideIn 0.5s ease-out forwards, fadeOut 0.5s ease-out forwards 3s;
 
+  &.error {
+    background-color: ${(props) => props.theme.colors.error};
+    color: ${(props) => props.theme.colors.black};
+  }
+
   @keyframes slideIn {
     from {
       transform: translateX(-50%) translateY(100%);
