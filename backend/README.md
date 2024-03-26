@@ -4,7 +4,7 @@
 
 - npm@10.5.0
 - node@20.11.1
-- docker@
+- docker
 - postgres@16
 
 ##### 1 - Primeiro abra um terminal dentro da pasta backend e escreva

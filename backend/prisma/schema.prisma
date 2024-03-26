@@ -42,7 +42,6 @@ model ContractCDC {
   vlAtual      String
   idSituac     String
   idSitVen     String
-  status       String
   createdAt    DateTime  @default(now()) @map("created_at")
   updateAt     DateTime? @updatedAt
 
